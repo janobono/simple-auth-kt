@@ -1,0 +1,50 @@
+version: '3.2'
+
+services:
+  db:
+    image: postgres:13-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
+    volumes:
+      - auth-data:/var/lib/postgresql/data
+
+  be:
+    image: sk.janobono/simple-auth-kt-backend:latest
+    restart: unless-stopped
+    environment:
+      - DB_URL=jdbc:postgresql://db:5432/app
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.auth.rule=PathPrefix(`/api/backend`)
+      - traefik.http.routers.auth.entrypoints=web
+      - traefik.http.services.auth.loadbalancer.server.port=8080
+
+  fe:
+    image: sk.janobono/simple-auth-kt-frontend:latest
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.fe.rule=PathPrefix(`/`)
+      - traefik.http.routers.fe.entrypoints=web
+      - traefik.http.services.fe.loadbalancer.server.port=80
+
+  traefik:
+    image: traefik:v2.3
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--log.level=DEBUG"
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+volumes:
+  auth-data:

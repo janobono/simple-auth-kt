@@ -1,0 +1,43 @@
+# ===============================
+# = SERVER
+# ===============================
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: ${CONTEXT_PATH:/api/backend}
+
+# ===============================
+# = LOGGING
+# ===============================
+logging:
+  level:
+    sk.janobono: ${LOG_LEVEL:debug}
+#    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+
+spring:
+  # ===============================
+  # = JPA / HIBERNATE
+  # ===============================
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/app}
+    username: ${DB_USER:app}
+    password: ${DB_PASS:app}
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        # format_sql: true
+        enable_lazy_load_no_trans: true
+        event:
+          merge:
+            entity_copy_observer: allow
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    open-in-view: false
+
+app:
+  issuer: ${APP_ISSUER:simple-auth-kt}
+  jwt-expiration: ${APP_JWT_EXPIRATION:7200}
+  jwt-private-key: ${APP_JWT_PRIVATE_KEY:MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJtoXnsH6Ej7xpuRL9T1kElPWfH64KRjUQU6vRhgQi/z4FD6GncrK5PSjZA14XFiZZVeO6cvivdiQhpMBZqs9xjpiMmmAEBkEXf7MmvObsPuSa2jbLtXTGF8q5SZ83FIfFNwoghPToL9U64InhqBc2G6pbqisk38n14x/Y60/FSLAgMBAAECgYAXSxJ2QF4pqks/gAh6VAA3bMRfh6nqGdTIAuDa6XqiM1yY5pPW7sqOUo3TYrASzZvKQqCQU4jxwXGE/YYNhAVZI5GhUXS8l4m0QFjg7fe0pnLMq7uIUMgU0NUByv2fkZ1E5W/Z/7rJgABT4j56W9KAaJbmRUeYAUCyN7a55nktiQJBANhz5zc5KlWOJtmZ5kq1T7OKdv12JhMllAaL5ksxZk4Z6UUPXxudzTnK1/QyD2be7ySKjhsp6foM4kMPTbvEMyUCQQC3zTgKs29IizFjIvOt+rIESw4im+ojvz7bOFg6L02i+qbFNfMYuPB8Quq0ldR4t4Ujvb91UcjsYDMbfzd7ZLHvAkBAXueqMqP2YZoIKI6mNRmIyWrtoc9c7lYBRGWugvhrzaTj1thv/BPmVf63LpQKAc6YzWPJjEN7C43WZ5y0dHrJAkAwLeghzfU+w9XXUcMkeNGPFImJAuu2IRx95GAkKGAmd6OdkE2/zkKjn/rcCWZfmmOZAdUdEKolY/YhoBBQFQ4bAkAWwe3NoV1+OkJHVF+ECFUGmFfUgh3K5foGHkdrII82CnlSbflLb9ODPTS25XHHXz7ENzXAY2sFjih+lgJ+Mz8x}
+  jwt-public-key: ${APP_JWT_PUBLIC_KEY:MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCbaF57B+hI+8abkS/U9ZBJT1nx+uCkY1EFOr0YYEIv8+BQ+hp3KyuT0o2QNeFxYmWVXjunL4r3YkIaTAWarPcY6YjJpgBAZBF3+zJrzm7D7kmto2y7V0xhfKuUmfNxSHxTcKIIT06C/VOuCJ4agXNhuqW6orJN/J9eMf2OtPxUiwIDAQAB}

@@ -1,0 +1,27 @@
+{
+  "title": "Simple Auth",
+  "header": {
+    "log-in": "Log In",
+    "log-out": "Log Out",
+    "welcome": "Welcome dear user"
+  },
+  "footer": {
+    "by": "by",
+    "license": "The source code is free.",
+    "loading": "Loading...",
+    "healthy": "Backend healthy",
+    "error": "Backend Error"
+  },
+  "logIn": {
+    "username": {
+      "label": "Username",
+      "required": "Username is required!"
+    },
+    "password": {
+      "label": "Password",
+      "required": "Password is required!"
+    },
+    "submit": "Submit",
+    "error": "Username or password is not valid!"
+  }
+}

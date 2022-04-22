@@ -1,0 +1,27 @@
+{
+  "title": "Simple Auth",
+  "header": {
+    "log-in": "Prihlásiť",
+    "log-out": "Odhlásiť",
+    "welcome": "Vitaj drahý používateľ"
+  },
+  "footer": {
+    "by": "vytvoril",
+    "license": "Zdrojový kód je slobodný.",
+    "loading": "Overujem...",
+    "healthy": "Backend je v poriadku",
+    "error": "Backend má problém"
+  },
+  "logIn": {
+    "username": {
+      "label": "Používateľské meno",
+      "required": "Používateľské meno je povinné!"
+    },
+    "password": {
+      "label": "Heslo",
+      "required": "Heslo je povinné!"
+    },
+    "submit": "Potvrdiť",
+    "error": "Neplatné používateľské meno alebo heslo!"
+  }
+}
