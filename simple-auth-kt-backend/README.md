@@ -1,11 +1,11 @@
-# simple auth backend kt
+# simple auth kt backend
 
 Simple authentication backend, roles and users management api.
 
 ## build
 
 ```
-docker build -t sk.janobono/simple-auth-backend .
+docker build -t sk.janobono/simple-auth-kt-backend .
 ```
 
 ## environment variables
