@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>simple-auth-backend-kt</artifactId>
+    <artifactId>simple-auth-kt-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>simple-auth-backend-kt</name>
     <description>simple-auth-backend-kt</description>
