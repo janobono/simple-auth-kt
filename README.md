@@ -1,4 +1,4 @@
-# simple auth
+# simple auth kt
 
 Simple JWT Auth Application, SpringBoot backend (kotlin) and React.js frontend, Docker as deployment environment.
 
