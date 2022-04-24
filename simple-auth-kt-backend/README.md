@@ -18,7 +18,7 @@ docker build -t sk.janobono/simple-auth-kt-backend .
 | DB_URL              | jdbc:postgresql://localhost:5432/app |  
 | DB_USER             | app                                  | 
 | DB_PASS             | app                                  | 
-| APP_ISSUER          | simple-auth                          | 
+| APP_ISSUER          | simple-auth-kt                       | 
 | APP_JWT_EXPIRATION  | 7200                                 |
 | APP_JWT_PRIVATE_KEY | *                                    | 
 | APP_JWT_PUBLIC_KEY  | **                                   | 
@@ -39,8 +39,8 @@ docker-compose -f docker-compose-dev.yaml up -d
 Import test user with:
 
 ```
-docker cp ./test_user.sql simple-auth_db_1:/test_user.sql
-docker exec -it simple-auth_db_1 bash
+docker cp ./test_user.sql simple-auth-kt_db_1:/test_user.sql
+docker exec -it simple-auth-kt_db_1 bash
 psql "dbname='app' user='app' password='app' host='localhost'" -f /test_user.sql
 ```
 
